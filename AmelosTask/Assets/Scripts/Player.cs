@@ -3,19 +3,41 @@ using System.Collections;
 
 public class Player : MonoBehaviour 
 {
-    float cameraDistance = 3.0f;
+    float cameraDistance;
     Vector3 lastMoveDirection = Vector3.forward;
-    float cameraHeight = 3.0f;
+    float cameraHeight;
+    public Gun gun;
+    float health;
+    const float maxHealth = 100.0f;
 
 	void Start () 
     {
-	
+        cameraDistance = 5.0f;
+        cameraHeight = 3.0f;
+        health = maxHealth;
+        gun = new MachineGun();
+
+        Globals.player = this;
 	}
 	
 	void Update () 
     {
-
+        gun.Tick();
 	}
+
+    public void ReceiveDamage(float damage)
+    {
+        health = health - damage;
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+
+    }
 
     public void Move(Vector2 direction)
     {
@@ -28,7 +50,11 @@ public class Player : MonoBehaviour
 
     public void Shoot(Vector2 direction)
     {
-        Debug.Log("SHOOT " + direction);
+        Vector3 shootDirectionTransformed = new Vector3(direction.x, 0, direction.y);
+        shootDirectionTransformed = Camera.main.transform.TransformDirection(shootDirectionTransformed);
+        shootDirectionTransformed.y = 0.0f;
+
+        gun.OnShoot(transform.position, shootDirectionTransformed);
     }
 
     public void UpdateCameraPosition()

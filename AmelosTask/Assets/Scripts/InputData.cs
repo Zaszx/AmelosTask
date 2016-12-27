@@ -15,8 +15,6 @@ public class InputData
     {
         this.allowedArea = allowedArea;
         this.maxIntensity = maxIntensity;
-
-        Debug.Log("ALLOWED AREA: " + allowedArea);
     }
 
     public void Tick()
@@ -38,7 +36,6 @@ public class InputData
 
     private bool ProcessTouch(Vector3 touchPosition)
     {
-        //Debug.Log("TOUCH POSITION: " + touchPosition);
         if (allowedArea.Contains(touchPosition))
         {
             if (isActive)
