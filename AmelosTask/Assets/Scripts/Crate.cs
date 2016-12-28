@@ -20,6 +20,8 @@ public class Crate : MonoBehaviour
         {
             case GunType.MachineGun:
                 return new MachineGun();
+            case GunType.ShotGun:
+                return new ShotGun();
         }
         return new MachineGun();
     }

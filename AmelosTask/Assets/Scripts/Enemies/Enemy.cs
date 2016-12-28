@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour
     protected float speed;
     protected CooldownTimer cooldownTimer = new CooldownTimer();
     protected float seeDistance;
+    protected float attackDistance;
 
     public virtual void Start()
     {

@@ -4,6 +4,7 @@ using System.Collections;
 public enum GunType
 {
     MachineGun,
+    ShotGun,
 }
 public abstract class Gun 
 {
@@ -14,6 +15,16 @@ public abstract class Gun
     public Gun()
     {
 
+    }
+
+    public virtual void CreateBullet(Vector3 position, Vector3 direction)
+    {
+        Bullet newBullet = GameObject.Instantiate(Prefabs.bullet).GetComponent<Bullet>();
+        newBullet.damage = damage;
+        newBullet.transform.position = position + direction.normalized;
+        newBullet.transform.forward = direction.normalized;
+        newBullet.GetComponent<Rigidbody>().velocity = direction.normalized * bulletSpeed;
+        newBullet.transform.parent = Globals.bulletsParentObject.transform;
     }
 
     public abstract void OnShoot(Vector3 position, Vector3 direction);
