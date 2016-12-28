@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
         Globals.player = this;
 	}
 	
+    public float GetRemainingHealth()
+    {
+        return health;
+    }
+
 	void Update () 
     {
         gun.Tick();
