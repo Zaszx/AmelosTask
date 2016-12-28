@@ -12,6 +12,7 @@ public class Ghoul : Enemy
         health = 50.0f;
         damage = 10.0f;
         speed = 3.0f;
+        seeDistance = 20.0f;
 
         cooldownTimer.Set(0.1f);
     }

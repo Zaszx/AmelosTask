@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
     protected float damage;
     protected float speed;
     protected CooldownTimer cooldownTimer = new CooldownTimer();
+    protected float seeDistance;
 
     public virtual void Start()
     {
@@ -33,14 +34,18 @@ public abstract class Enemy : MonoBehaviour
     {
         if(hasSeenPlayer == false)
         {
-            Ray rayToPlayer = new Ray(transform.position, Globals.player.transform.position - transform.position);
-            RaycastHit hitInfo = new RaycastHit();
-            bool rayHitsAnything = Physics.Raycast(rayToPlayer, out hitInfo);
-            if(rayHitsAnything)
+            float distanceToPlayer = Vector3.Distance(Globals.player.transform.position, transform.position);
+            if (distanceToPlayer < seeDistance)
             {
-                if(hitInfo.collider.gameObject.GetComponent<Player>() != null)
+                Ray rayToPlayer = new Ray(transform.position, Globals.player.transform.position - transform.position);
+                RaycastHit hitInfo = new RaycastHit();
+                bool rayHitsAnything = Physics.Raycast(rayToPlayer, out hitInfo);
+                if (rayHitsAnything)
                 {
-                    hasSeenPlayer = true;
+                    if (hitInfo.collider.gameObject.GetComponent<Player>() != null)
+                    {
+                        hasSeenPlayer = true;
+                    }
                 }
             }
         }

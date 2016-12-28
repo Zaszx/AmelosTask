@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum GunType
+{
+    MachineGun,
+}
 public abstract class Gun 
 {
     protected CooldownTimer cooldownTimer = new CooldownTimer();
