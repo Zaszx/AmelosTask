@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     public bool hasSeenPlayer;
     protected float damage;
     protected float speed;
+    protected CooldownTimer cooldownTimer = new CooldownTimer();
 
     public virtual void Start()
     {
@@ -43,6 +44,7 @@ public abstract class Enemy : MonoBehaviour
                 }
             }
         }
+        cooldownTimer.Tick();
     }
 
     public abstract void Attack();

@@ -12,6 +12,8 @@ public class Ghoul : Enemy
         health = 50.0f;
         damage = 10.0f;
         speed = 3.0f;
+
+        cooldownTimer.Set(0.1f);
     }
 
 
@@ -37,6 +39,9 @@ public class Ghoul : Enemy
 
     public override void Attack()
     {
-        Globals.player.ReceiveDamage(damage);
+        if(cooldownTimer.Query())
+        {
+            Globals.player.ReceiveDamage(damage);
+        }
     }
 }

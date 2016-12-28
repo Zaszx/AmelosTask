@@ -9,9 +9,9 @@ public class InputManager
     public InputManager()
     {
         const float maxIntensity = 2.0f;
-        Bounds movementBounds = new Bounds(new Vector3(Screen.width * 0.25f, Screen.height * 0.75f, 0), new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 100));
+        Bounds movementBounds = new Bounds(new Vector3(Screen.width * 0.25f, Screen.height * 0.5f, 0), new Vector3(Screen.width * 0.5f, Screen.height, 100));
         movementInput = new InputData(movementBounds, maxIntensity);
-        Bounds shootBounds = new Bounds(new Vector3(Screen.width * 0.75f, Screen.height * 0.75f, 0), new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 100));
+        Bounds shootBounds = new Bounds(new Vector3(Screen.width * 0.75f, Screen.height * 0.5f, 0), new Vector3(Screen.width * 0.5f, Screen.height, 100));
         shootInput = new InputData(shootBounds, maxIntensity);
     }
 
