@@ -6,6 +6,11 @@ public class GameManager : MonoBehaviour
     public InputManager inputManager;
     public Player player;
 
+    void Awake()
+    {
+        Globals.Init();
+    }
+
 	void Start () 
     {
         inputManager = new InputManager();

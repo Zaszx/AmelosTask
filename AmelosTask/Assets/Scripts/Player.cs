@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour 
 {
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-
+        SceneManager.LoadScene("gameScene");
     }
 
     public void Move(Vector2 direction)
