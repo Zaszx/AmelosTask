@@ -6,7 +6,7 @@ public class MachineGun : Gun
     public MachineGun()
     {
         cooldownTimer.Set(0.1f);
-        bulletSpeed = 5.0f;
+        bulletSpeed = 15.0f;
         damage = 10.0f;
     }
 

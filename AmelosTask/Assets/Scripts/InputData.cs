@@ -32,12 +32,7 @@ public class InputData
         for(int i = 0; i < Input.touchCount; i++)
         {
             Touch currentTouch = Input.GetTouch(i);
-            anyRelevantTouchFound = ProcessTouch(currentTouch.position);
-        }
-
-        if(Input.GetKey(KeyCode.Mouse0))
-        {
-            anyRelevantTouchFound = ProcessTouch(Input.mousePosition);
+            anyRelevantTouchFound = anyRelevantTouchFound || ProcessTouch(currentTouch.position);
         }
 
         isActive = anyRelevantTouchFound;

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Globals.Init();
+        Input.multiTouchEnabled = true;
     }
 
 	void Start () 
